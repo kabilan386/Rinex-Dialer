@@ -257,9 +257,9 @@ class CallActivity : SimpleActivity() {
             CallManager.merge()
         }
 
-        callManage.setOnClickListener {
-            startActivity(Intent(this@CallActivity, ConferenceActivity::class.java))
-        }
+//        callManage.setOnClickListener {
+//            startActivity(Intent(this@CallActivity, ConferenceActivity::class.java))
+//        }
 
         callEnd.setOnClickListener {
 
@@ -311,7 +311,7 @@ class CallActivity : SimpleActivity() {
         val inactiveColor = getInactiveButtonColor()
         arrayOf(
             callToggleMicrophone, callToggleSpeaker, callDialpad,
-            callToggleHold, callAdd, callSwap, callMerge, callManage
+            callToggleHold, callAdd, callSwap, callMerge
         ).forEach {
             it.applyColorFilter(bgColor.getContrastColor())
             it.background.applyColorFilter(inactiveColor)
@@ -319,7 +319,7 @@ class CallActivity : SimpleActivity() {
 
         arrayOf(
             callToggleMicrophone, callToggleSpeaker, callDialpad,
-            callToggleHold, callAdd, callSwap, callMerge, callManage
+            callToggleHold, callAdd, callSwap, callMerge
         ).forEach { imageView ->
             imageView.setOnLongClickListener {
                 if (!imageView.contentDescription.isNullOrEmpty()) {
@@ -330,7 +330,7 @@ class CallActivity : SimpleActivity() {
         }
 
         callSimId.setTextColor(getProperTextColor().getContrastColor())
-        dialpadInput.disableKeyboard()
+//        dialpadInput.disableKeyboard()
 
         dialpadWrapper.onGlobalLayout {
             dialpadHeight = dialpadWrapper.height.toFloat()
@@ -499,7 +499,7 @@ class CallActivity : SimpleActivity() {
 
     private fun dialpadPressed(char: Char) {
         CallManager.keypad(char)
-        binding.dialpadInput.addCharacter(char)
+//        binding.dialpadInput.addCharacter(char)
     }
 
     private fun changeCallAudioRoute() {
@@ -719,7 +719,7 @@ class CallActivity : SimpleActivity() {
                 callStatusLabel.text = getString(statusTextId)
             }
 
-            callManage.beVisibleIf(call.hasCapability(Call.Details.CAPABILITY_MANAGE_CONFERENCE))
+//            callManage.beVisibleIf(call.hasCapability(Call.Details.CAPABILITY_MANAGE_CONFERENCE))
             setActionButtonEnabled(callSwap, state == Call.STATE_ACTIVE)
             setActionButtonEnabled(callMerge, state == Call.STATE_ACTIVE)
         }

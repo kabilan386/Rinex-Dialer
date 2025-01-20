@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.content.Intent
 import android.database.Cursor
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -158,7 +159,7 @@ class DialpadActivity : SimpleActivity() {
             val callIcon = resources.getColoredDrawableWithColor(R.drawable.ic_phone_two_vector, properPrimaryColor.getContrastColor())
             binding.apply {
                 dialpadCallTwoButton.setImageDrawable(callIcon)
-                dialpadCallTwoButton.background.applyColorFilter(properPrimaryColor)
+                dialpadCallTwoButton.background.applyColorFilter(Color.parseColor("#32DB87"))
                 dialpadCallTwoButton.beVisible()
                 dialpadCallTwoButton.setOnClickListener {
                     initCall(dialpadInput.value, 1)
@@ -173,7 +174,7 @@ class DialpadActivity : SimpleActivity() {
         binding.apply {
             val callIcon = resources.getColoredDrawableWithColor(callIconId, properPrimaryColor.getContrastColor())
             dialpadCallButton.setImageDrawable(callIcon)
-            dialpadCallButton.background.applyColorFilter(properPrimaryColor)
+            dialpadCallButton.background.applyColorFilter(Color.parseColor("#32DB87"))
 
             letterFastscroller.textColor = getProperTextColor().getColorStateList()
             letterFastscroller.pressedTextColor = properPrimaryColor

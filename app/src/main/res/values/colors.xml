@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="ripple_foreground">#33FFFFFF</color>
-    <color name="colorPrimary">#F44336</color>
-    <color name="color_primary">#F44336</color>
+    <color name="colorPrimary">#CEE7EC</color>
+    <color name="color_primary">#CEE7EC</color>
 </resources>

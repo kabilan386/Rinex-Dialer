@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.content.res.Configuration
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
@@ -102,7 +103,7 @@ class MainActivity : SimpleActivity() {
 
         updateMenuColors()
         val properPrimaryColor = getProperPrimaryColor()
-        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, properPrimaryColor.getContrastColor())
+        val dialpadIcon = resources.getColoredDrawableWithColor(R.drawable.ic_dialpad_vector, Color.parseColor("#29D777"))
         binding.mainDialpadButton.setImageDrawable(dialpadIcon)
 
         updateTextColors(binding.mainHolder)
@@ -179,9 +180,9 @@ class MainActivity : SimpleActivity() {
             findItem(R.id.clear_call_history).isVisible = currentFragment == getRecentsFragment()
             findItem(R.id.sort).isVisible = currentFragment != getRecentsFragment()
             findItem(R.id.create_new_contact).isVisible = currentFragment == getContactsFragment()
-            findItem(R.id.change_view_type).isVisible = currentFragment == getFavoritesFragment()
-            findItem(R.id.column_count).isVisible = currentFragment == getFavoritesFragment() && config.viewType == VIEW_TYPE_GRID
-            findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
+//            findItem(R.id.change_view_type).isVisible = currentFragment == getFavoritesFragment()
+//            findItem(R.id.column_count).isVisible = currentFragment == getFavoritesFragment() && config.viewType == VIEW_TYPE_GRID
+//            findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(R.bool.hide_google_relations)
         }
     }
 
@@ -207,11 +208,11 @@ class MainActivity : SimpleActivity() {
                     R.id.create_new_contact -> launchCreateNewContactIntent()
                     R.id.sort -> showSortingDialog(showCustomSorting = getCurrentFragment() is FavoritesFragment)
                     R.id.filter -> showFilterDialog()
-                    R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
-                    R.id.settings -> launchSettings()
-                    R.id.change_view_type -> changeViewType()
-                    R.id.column_count -> changeColumnCount()
-                    R.id.about -> launchAbout()
+//                    R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
+//                    R.id.settings -> launchSettings()
+//                    R.id.change_view_type -> changeViewType()
+//                    R.id.column_count -> changeColumnCount()
+//                    R.id.about -> launchAbout()
                     else -> return@setOnMenuItemClickListener false
                 }
                 return@setOnMenuItemClickListener true
@@ -244,7 +245,7 @@ class MainActivity : SimpleActivity() {
 
     private fun updateMenuColors() {
         updateStatusbarColor(getProperBackgroundColor())
-        binding.mainMenu.updateColors()
+//        binding.mainMenu.updateColors()
     }
 
     private fun checkContactPermissions() {
@@ -319,9 +320,9 @@ class MainActivity : SimpleActivity() {
             icons.add(R.drawable.ic_person_vector)
         }
 
-        if (showTabs and TAB_FAVORITES != 0) {
-            icons.add(R.drawable.ic_star_vector)
-        }
+//        if (showTabs and TAB_FAVORITES != 0) {
+//            icons.add(R.drawable.ic_star_vector)
+//        }
 
         if (showTabs and TAB_CALL_HISTORY != 0) {
             icons.add(R.drawable.ic_clock_filled_vector)
@@ -338,9 +339,9 @@ class MainActivity : SimpleActivity() {
             icons.add(R.drawable.ic_person_outline_vector)
         }
 
-        if (showTabs and TAB_FAVORITES != 0) {
-            icons.add(R.drawable.ic_star_outline_vector)
-        }
+//        if (showTabs and TAB_FAVORITES != 0) {
+//            icons.add(R.drawable.ic_star_outline_vector)
+//        }
 
         if (showTabs and TAB_CALL_HISTORY != 0) {
             icons.add(R.drawable.ic_clock_vector)
@@ -431,7 +432,7 @@ class MainActivity : SimpleActivity() {
     private fun getTabIcon(position: Int): Drawable {
         val drawableId = when (position) {
             0 -> R.drawable.ic_person_vector
-            1 -> R.drawable.ic_star_vector
+//            1 -> R.drawable.ic_star_vector
             else -> R.drawable.ic_clock_vector
         }
 
@@ -441,7 +442,7 @@ class MainActivity : SimpleActivity() {
     private fun getTabLabel(position: Int): String {
         val stringId = when (position) {
             0 -> R.string.contacts_tab
-            1 -> R.string.favorites_tab
+//            1 -> R.string.favorites_tab
             else -> R.string.call_history_tab
         }
 
@@ -486,9 +487,9 @@ class MainActivity : SimpleActivity() {
             fragments.add(getContactsFragment())
         }
 
-        if (showTabs and TAB_FAVORITES > 0) {
-            fragments.add(getFavoritesFragment())
-        }
+//        if (showTabs and TAB_FAVORITES > 0) {
+//            fragments.add(getFavoritesFragment())
+//        }
 
         if (showTabs and TAB_CALL_HISTORY > 0) {
             fragments.add(getRecentsFragment())
@@ -501,7 +502,7 @@ class MainActivity : SimpleActivity() {
 
     private fun getContactsFragment(): ContactsFragment? = findViewById(R.id.contacts_fragment)
 
-    private fun getFavoritesFragment(): FavoritesFragment? = findViewById(R.id.favorites_fragment)
+    private fun getFavoritesFragment(): FavoritesFragment? = null
 
     private fun getRecentsFragment(): RecentsFragment? = findViewById(R.id.recents_fragment)
 
@@ -510,22 +511,10 @@ class MainActivity : SimpleActivity() {
         return when (config.defaultTab) {
             TAB_LAST_USED -> if (config.lastUsedViewPagerPage < binding.mainTabsHolder.tabCount) config.lastUsedViewPagerPage else 0
             TAB_CONTACTS -> 0
-            TAB_FAVORITES -> if (showTabsMask and TAB_CONTACTS > 0) 1 else 0
+//            TAB_FAVORITES -> if (showTabsMask and TAB_CONTACTS > 0) 1 else 0
             else -> {
                 if (showTabsMask and TAB_CALL_HISTORY > 0) {
-                    if (showTabsMask and TAB_CONTACTS > 0) {
-                        if (showTabsMask and TAB_FAVORITES > 0) {
-                            2
-                        } else {
-                            1
-                        }
-                    } else {
-                        if (showTabsMask and TAB_FAVORITES > 0) {
-                            1
-                        } else {
-                            0
-                        }
-                    }
+                    1
                 } else {
                     0
                 }
@@ -546,7 +535,7 @@ class MainActivity : SimpleActivity() {
 
     private fun launchSettings() {
         hideKeyboard()
-        startActivity(Intent(applicationContext, SettingsActivity::class.java))
+//        startActivity(Intent(applicationContext, SettingsActivity::class.java))
     }
 
     private fun launchAbout() {

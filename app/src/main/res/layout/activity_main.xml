@@ -8,7 +8,9 @@
     <com.simplemobiletools.commons.views.MySearchMenu
         android:id="@+id/main_menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_holder"
@@ -36,10 +38,11 @@
             android:elevation="@dimen/medium_margin"
             android:padding="@dimen/activity_margin"
             android:src="@drawable/ic_dialpad_vector"
-            app:backgroundTint="@color/color_primary"
+            android:backgroundTint="#29D777"
+            app:backgroundTint="#29D777"
             app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
             app:layout_constraintEnd_toEndOf="parent"
-            app:rippleColor="@color/pressed_item_foreground" />
+            />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/main_tabs_holder"
