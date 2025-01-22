@@ -161,8 +161,8 @@
 
         <ImageView
             android:id="@+id/call_toggle_microphone"
-            android:layout_width="@dimen/dialpad_button_size"
-            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_width="81dp"
+            android:layout_height="81dp"
             android:background="@drawable/circle_call_activity_button_background"
             android:backgroundTint="#EDF3F6"
             android:contentDescription="@string/turn_microphone_off"
@@ -176,8 +176,8 @@
 
         <ImageView
             android:id="@+id/call_toggle_speaker"
-            android:layout_width="@dimen/dialpad_button_size"
-            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_width="88dp"
+            android:layout_height="85dp"
             android:background="@drawable/circle_call_activity_button_background"
             android:backgroundTint="#EDF3F6"
             android:contentDescription="@string/turn_speaker_on"
@@ -191,8 +191,8 @@
 
         <ImageView
             android:id="@+id/call_dialpad"
-            android:layout_width="@dimen/dialpad_button_size"
-            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_width="70dp"
+            android:layout_height="83dp"
             android:background="@drawable/circle_button_background_ripple"
             android:contentDescription="@string/show_dialpad"
             android:padding="@dimen/activity_margin"
@@ -205,8 +205,8 @@
 
         <ImageView
             android:id="@+id/call_toggle_hold"
-            android:layout_width="@dimen/dialpad_button_size"
-            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_width="87dp"
+            android:layout_height="83dp"
             android:layout_marginTop="@dimen/big_margin"
             android:background="@drawable/circle_call_activity_button_background"
             android:backgroundTint="#EDF3F6"
@@ -219,8 +219,8 @@
 
         <ImageView
             android:id="@+id/call_add"
-            android:layout_width="@dimen/dialpad_button_size"
-            android:layout_height="@dimen/dialpad_button_size"
+            android:layout_width="89dp"
+            android:layout_height="80dp"
             android:layout_marginTop="@dimen/big_margin"
             android:background="@drawable/circle_call_activity_button_background"
             android:backgroundTint="#EDF3F6"
