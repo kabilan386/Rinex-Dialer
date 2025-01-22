@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -29,19 +30,22 @@
 
         <com.simplemobiletools.commons.views.MyFloatingActionButton
             android:id="@+id/main_dialpad_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="115dp"
+            android:layout_height="78dp"
             android:layout_gravity="bottom|end"
             android:layout_marginEnd="@dimen/bigger_margin"
             android:layout_marginBottom="@dimen/activity_margin"
+            android:backgroundTint="#29D777"
             android:contentDescription="@string/dialpad"
             android:elevation="@dimen/medium_margin"
             android:padding="@dimen/activity_margin"
             android:src="@drawable/ic_dialpad_vector"
-            android:backgroundTint="#29D777"
             app:backgroundTint="#29D777"
             app:layout_constraintBottom_toTopOf="@+id/main_tabs_holder"
             app:layout_constraintEnd_toEndOf="parent"
+            app:fabSize="auto"
+            app:fabCustomSize="75dp"
+
             />
 
         <com.google.android.material.tabs.TabLayout

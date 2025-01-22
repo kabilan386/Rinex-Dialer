@@ -245,7 +245,7 @@ class MainActivity : SimpleActivity() {
 
     private fun updateMenuColors() {
         updateStatusbarColor(getProperBackgroundColor())
-//        binding.mainMenu.updateColors()
+        binding.mainMenu.updateColors()
     }
 
     private fun checkContactPermissions() {

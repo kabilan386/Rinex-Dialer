@@ -385,23 +385,24 @@
             </intent-filter>
         </activity-alias>
 
-        <activity-alias
-            android:name=".activities.SplashActivity.Amber"
-            android:enabled="false"
-            android:exported="true"
-            android:icon="@mipmap/ic_launcher_amber"
-            android:roundIcon="@mipmap/ic_launcher_amber"
-            android:targetActivity=".activities.SplashActivity">
+<!--        <activity-alias-->
+<!--            android:name=".activities.SplashActivity.Amber"-->
+<!--            android:enabled="false"-->
+<!--            android:exported="true"-->
+<!--            android:icon="@mipmap/ic_launcher_amber"-->
+<!--            android:roundIcon="@mipmap/ic_launcher_amber"-->
+<!--            android:targetActivity=".activities.SplashActivity">-->
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity-alias>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity-alias>-->
 
         <activity-alias
             android:name=".activities.SplashActivity.Orange"
             android:enabled="true"
+
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
             android:roundIcon="@mipmap/ic_launcher"
